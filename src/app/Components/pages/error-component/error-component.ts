@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
   <div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mb-4" src="favicon.ico" alt="" width="50" height="50"/> 
+    <img class="d-block mx-auto mb-4" src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*yE6rU3wKRRwuGG6PiyxqjQ.png" alt="Not found"/> 
     <h1 class="display-5 fw-bold text-body-emphasis">Oops ;(</h1>
     <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">Something went wrong, please try after sometime.</p>
