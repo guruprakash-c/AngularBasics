@@ -1,0 +1,40 @@
+<section class="card p-4 shadow">
+    <h3>Dynamic forms</h3>
+    <hr/>
+    <form class="row g-3" [formGroup]="quizForm" (ngSubmit)="OnSubmit()">
+    <div class="col-lg-12 text-center">
+        <button class="btn btn-light btn-sm" type="button" (click)="AddQuestion()">[+] Add Question</button>
+    </div>
+    @for(question of quizForm.controls.questions.controls; 
+        track qIndex; 
+        let qIndex = $index){
+        <div class="col-md-6 question" [formGroupName]="qIndex">
+            <label class="form-label">Question: </label>
+            <input type="text" 
+                class="form-control" 
+                formControlName="questionName"
+            />
+            <button class="btn btn-light btn-sm" type="button" (click)="RemoveQuestion(qIndex)" title="Remove Question">[-]</button>
+        </div>
+        <div class="col-md-12 answers" formArrayName="answers">
+            <label class="form-label">Answers: </label>
+            @for(answer of quizForm.controls.questions.controls.at(qIndex)?.controls?.answers?.controls; 
+                    track aIndex; 
+                    let aIndex = $index){
+                        {{ answer }}
+            <div [formGroupName]="aIndex" class="input-group">
+            <input type="text" 
+                class="form-control" 
+                formControlName="text"
+            />
+            <button class="btn btn-light btn-sm" type="button" (click)="AddAnswer(aIndex)" title="Add Answer">[+]</button>
+            <button class="btn btn-light btn-sm" type="button" (click)="RemoveAnswer(aIndex)" title="Remove Answer">[-]</button>
+            </div>
+            }
+        </div>
+    }
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+</section>

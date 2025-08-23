@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { App } from './app';
 import { FormsComponent } from './Forms/forms';
 import { ReactiveForms } from './Forms/Reactive/reactive-forms/reactive-forms';
+import { DynamicForms } from './Forms/dynamic-forms/dynamic-forms';
 
 export const routes: Routes = [
     {
@@ -15,5 +16,9 @@ export const routes: Routes = [
     {
         path: 'rf',
         component: ReactiveForms
+    },
+    {
+        path: 'df',
+        component: DynamicForms
     }
 ];
