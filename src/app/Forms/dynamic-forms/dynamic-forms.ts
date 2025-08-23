@@ -41,8 +41,8 @@ export class DynamicForms {
   RemoveQuestion(questionIndex:number):void{
     this.quizForm.controls.questions.removeAt(questionIndex);
   }
-  RemoveAnswer(answerIndex:number):void{
-    this.quizForm.controls.questions.at(answerIndex).controls?.answers?.removeAt(answerIndex);
+  RemoveAnswer(questionIndex:number, answerIndex:number):void{
+    this.quizForm.controls.questions.at(questionIndex).controls?.answers?.removeAt(answerIndex);
   }
   OnSubmit():void{
     console.log(this.quizForm.getRawValue());
