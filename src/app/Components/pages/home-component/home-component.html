@@ -1,0 +1,38 @@
+<section class="py-2">
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+  <div class="carousel-inner">
+    @for(blogPost of blogPosts; track blogPost.id){
+    <div class="carousel-item {{ ($index == 0) ? 'active' : '' }}">
+      <img [src]="blogPost.poster" class="d-block w-100" [alt]="blogPost.slug">
+      <div class="carousel-caption d-none d-md-block">
+        <h5><a [routerLink]="['/details', blogPost.slug]">{{ blogPost.title }}</a></h5>
+        <p>{{ blogPost.description }}</p>
+      </div>
+    </div>
+    }
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
+<section class="container-fluid py-2">
+  <div class="row g-3 justify-content-center">
+      @for(blogPost of blogPosts; track blogPost.id){
+      <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card shadow-sm">
+              <img [src]="blogPost.poster" class="card-img-top" [alt]="blogPost.slug">
+              <div class="card-body">
+                  <h5 class="card-heading"><a [routerLink]="['/details', blogPost.slug]">{{ blogPost.title }}</a></h5>
+                  <p class="card-text">{{ blogPost.description }}</p>
+              </div>
+          </div>
+      </div>
+      }
+  </div>
+</section>

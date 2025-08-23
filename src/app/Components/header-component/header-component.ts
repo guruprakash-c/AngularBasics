@@ -1,5 +1,6 @@
 import { Component, VERSION } from '@angular/core';
 
+
 @Component({
   selector: 'app-header-component',
   imports: [],
@@ -8,4 +9,5 @@ import { Component, VERSION } from '@angular/core';
 })
 export class HeaderComponent {
   title:string = `Angular ${VERSION.full} Basics`;
+  isSearch:boolean = false;
 }
