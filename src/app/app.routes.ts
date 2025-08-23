@@ -16,7 +16,7 @@ const routeConfig:Routes = [
     {
         path:'details/:perma',
         component: DetailsComponent,
-        title: `Details Page – ${defaultPageTitle}`
+        title: `Details Page – ${defaultPageTitle}`,
     },
     {
         path:'forms',
