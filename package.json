@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:AngularBasics": "node dist/AngularBasics/server/server.mjs"
+    "serve:ssr:AngularBasics": "node dist/AngularBasics/server/server.mjs",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +20,8 @@
     "@angular/platform-server": "^20.0.0",
     "@angular/router": "^20.0.0",
     "@angular/ssr": "^20.0.1",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
@@ -27,6 +30,7 @@
     "@angular/build": "^20.0.1",
     "@angular/cli": "^20.0.1",
     "@angular/compiler-cli": "^20.0.0",
+    "@puppeteer/ng-schematics": "^0.7.0",
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
@@ -36,6 +40,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.8.2"
+    "typescript": "~5.8.2",
+    "puppeteer": "24.17.0",
+    "jasmine": "5.9.0"
   }
 }

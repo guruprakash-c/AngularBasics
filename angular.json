@@ -93,6 +93,18 @@
               "src/styles.scss"
             ]
           }
+        },
+        "e2e": {
+          "builder": "@puppeteer/ng-schematics:puppeteer",
+          "options": {
+            "devServerTarget": "AngularBasics:serve",
+            "testRunner": "jasmine"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "AngularBasics:serve:production"
+            }
+          }
         }
       }
     }
