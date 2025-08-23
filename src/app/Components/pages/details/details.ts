@@ -25,29 +25,37 @@ type PostComments = {
       </div>
     </article>
     <section class="container-fluid py-5">
-      @if(userComments.length > 0){
+      @defer ( on timer(3s)) {
+        @if(userComments.length > 0){
         <div class="row g-3"> 
-        <h2>Recently added Comments</h2>
-        @for(userComment of userComments; track userComment.id){
-          <div class="col-lg-4 mt-1 mb-1">
-            <div class="card rounded-4 bg-white shadow p-2">
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <i class="bi bi-person fs-4"></i>
-                </div>
-                <div class="flex-grow-1 ms-3">
-                  <h2 class="h5">{{ userComment.emailAddress }}</h2>
-                  <h3 class="h2">{{ userComment.title }}</h3>
-                  <p>{{ userComment.comments }}</p>
+          <h2>Recently added Comments</h2>
+          @for(userComment of userComments; track userComment.id){
+            <div class="col-lg-4 mt-1 mb-1">
+              <div class="card rounded-4 bg-white shadow p-2">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <i class="bi bi-person fs-4"></i>
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h2 class="h5">{{ userComment.emailAddress }}</h2>
+                    <h3 class="h2">{{ userComment.title }}</h3>
+                    <p>{{ userComment.comments }}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        }
+          }
         </div>
-      } @else {
-        <h5>No comments added yet.</h5>
-      }
+        }@else {
+          <p class="fst-italics">No comments added yet.</p>
+        }
+    } @placeholder{
+      <p>Fetching...</p>
+    } @loading  {
+      <p>Please wait...</p>
+    } @error {
+      <p class="fst-italics">No comments added yet.</p>
+    }
     </section>
     <div class="modal fade" id="commentForm" tabindex="-1" aria-labelledby="commentFormLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
