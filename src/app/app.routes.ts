@@ -5,6 +5,7 @@ import { DynamicForms } from './Forms/dynamic-forms/dynamic-forms';
 import { HomeComponent } from './Components/pages/home-component/home-component';
 import { DetailsComponent } from './Components/pages/details/details';
 import { ErrorComponent } from './Components/pages/error-component/error-component';
+import { StocksComponent } from './stocks-component/stocks-component';
 
 const defaultPageTitle = `Angular ${VERSION.full} Basics`;
 const routeConfig:Routes = [
@@ -32,6 +33,11 @@ const routeConfig:Routes = [
         path: 'df',
         component: DynamicForms,
         title: `Dynamic Forms – ${defaultPageTitle}`
+    },
+    {
+        path:'stocks',
+        component: StocksComponent,
+        title: `Stocks – ${defaultPageTitle}`
     },
     {
         path: 'error',
