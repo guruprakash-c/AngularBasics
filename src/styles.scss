@@ -1,7 +1,15 @@
+:root{
+    --app-primary: #023871;
+    --app-primary-light: #0353A4;
+    --app-primary-dark: #001D3D;
+    --app-secondary: #ffff00;
+    --app-dark: #000814;
+}
 html{
     scroll-behavior: smooth;
 }
 body{
     font-family: 'Inter Tight', -apple-system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     letter-spacing: -2px;
+    font-optical-sizing: auto;
 }
