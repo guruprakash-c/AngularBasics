@@ -33,23 +33,30 @@
         </div>
         <div class="col-lg-4">
             <div class="card">
-                <form (ngSubmit)="addNewUser()">
+                <form #addUser="ngForm" (ngSubmit)="addNewUser()">
                     <header class="card-header align-middle"><i class="bi bi-person-add me-1"></i>Add New User </header>
                     <main class="card-body">
                         <section class="row g-3 justify-content-start">
                             <div class="col-lg-6 mb-1 mt-1">
                                 <label class="form-label">Name: </label>
-                                <input type="text" class="form-control" [(ngModel)]="userObj.fullName" name="fullName"/>
-                                <div id="emailHelp" class="form-text"></div>
+                                <input type="text" class="form-control" [(ngModel)]="userObj.fullName" name="fullName" required/>
+                                @if(userObj.fullName.invalid && userObj.fullName.touched){
+                                <small class="form-text text-danger">Name is required!</small>
+                                }
                             </div>
                             <div class="col-lg-6 mb-1 mt-1">
                                 <label class="form-label">Email address: </label>
-                                <input type="email" class="form-control" [(ngModel)]="userObj.emailId" name="emailId"/>
-                                <div id="emailHelp" class="form-text"></div>
+                                <input type="" email class="form-control" [(ngModel)]="userObj.emailId" name="emailId" required/>
+                                @if(userObj.emailId.invalid && userObj.emailId.touched){
+                                <small class="form-text text-danger">Email address is required!</small>
+                                }
                             </div>
                             <div class="col-lg-6 mb-1 mt-1">
                                 <label class="form-label">Password: </label>
-                                <input type="password" class="form-control" [(ngModel)]="userObj.password" name="password"/>
+                                <input type="password" class="form-control" [(ngModel)]="userObj.password" name="password" required/>
+                                 @if(userObj.password.invalid && userObj.password.touched){
+                                <small class="form-text text-danger">Password is required!</small>
+                                }
                             </div>
                             <div class="col-lg-6 mb-1 mt-1">
                                 <label class="form-label">Mobile number: </label>
@@ -59,7 +66,7 @@
                         </section>
                     </main>
                     <footer class="card-footer">
-                        <button type="submit" class="btn btn-primary me-2">Add User<i class="bi bi-arrow-right-short ms-1"></i></button>
+                        <button type="submit" class="btn btn-primary me-2" [disabled]="addUser.invalid">Add User<i class="bi bi-arrow-right-short ms-1"></i></button>
                         <button type="reset" class="btn btn-secondary">Cancel</button>
                     </footer>
                 </form>
