@@ -6,6 +6,7 @@ import { HomeComponent } from './Components/pages/home-component/home-component'
 import { DetailsComponent } from './Components/pages/details/details';
 import { ErrorComponent } from './Components/pages/error-component/error-component';
 import { StocksComponent } from './stocks-component/stocks-component';
+import { UsersComponent } from './Components/pages/users-component/users-component';
 
 const defaultPageTitle = `Angular ${VERSION.full} Basics`;
 const routeConfig:Routes = [
@@ -25,6 +26,11 @@ const routeConfig:Routes = [
         title: `Forms – ${defaultPageTitle}`
     },
     {
+        path: 'tf',
+        redirectTo: '/users',
+        title: `Template Driven Forms – ${defaultPageTitle}`
+    },
+    {
         path: 'rf',
         component: ReactiveForms,
         title: `Reactive Forms – ${defaultPageTitle}`
@@ -38,6 +44,11 @@ const routeConfig:Routes = [
         path:'stocks',
         component: StocksComponent,
         title: `Stocks – ${defaultPageTitle}`
+    },
+    {
+        path: 'users',
+        component: UsersComponent,
+        title: `Users – ${defaultPageTitle}`
     },
     {
         path: 'error',
