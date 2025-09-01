@@ -6,7 +6,11 @@ import { AfterViewInit, Component, ElementRef, ViewChild, afterNextRender } from
   selector: 'app-stocks-component',
   imports: [],
   templateUrl: './stocks-component.html',
-  styles: ``
+  styles: `
+    div{
+      font-family: 'DM Mono', monospace
+    }
+  `
 })
 export class StocksComponent{
   @ViewChild('myIdRef') container!: ElementRef;

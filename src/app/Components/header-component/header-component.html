@@ -39,9 +39,13 @@
         <button class="btn btn-dark" type="submit">Search</button>
       </form>
       } @else{
-        <span class="navbar-text fst-italic">
-          <abbr title="Proof of Concepts">PoC</abbr> of {{ title }}🎉
-        </span>
+        @defer (hydrate on timer(3s)) {
+          <span class="navbar-text">
+            <abbr title="Proof of Concepts">PoC</abbr> of {{ title }}🎉
+          </span>
+        } @placeholder {
+          <samp>Loading...</samp>
+        }
       }
     </div>
   </div>
