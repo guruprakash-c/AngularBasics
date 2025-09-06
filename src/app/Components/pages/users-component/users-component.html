@@ -6,6 +6,11 @@
             }
         </div>
         <div class="col-lg-8">
+            <pre>{{ selectedUser | json }}</pre>
+            <form>
+                <app-user-lookup-box (userSelected)="handleSelectedUser($event)"></app-user-lookup-box>
+                <button mat-button class="btn btn-outline-secondary btn-sm" (click)="showAllUsers()">Show All Users</button>
+            </form>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>

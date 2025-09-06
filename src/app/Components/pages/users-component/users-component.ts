@@ -2,15 +2,18 @@ import { Component, inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { finalize } from 'rxjs';
-import { error } from 'console';
+import { UserLookupBox } from "../../user-lookup-box/user-lookup-box";
+import { Users } from '../../../Services/UsersService/users';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-users-component',
-  imports: [FormsModule],
+  imports: [FormsModule, UserLookupBox, JsonPipe],
   templateUrl: './users-component.html',
   styleUrl: './users-component.scss'
 })
 export class UsersComponent implements OnInit{
+  selectedUser:Users | null = null;
   userList:any [] = [];
   _http:HttpClient = inject(HttpClient);
   userObj:any = {
@@ -35,7 +38,7 @@ export class UsersComponent implements OnInit{
       .subscribe({
         next:(res:any) => {
             this.userList = res;
-            console.log(res);
+            // console.log(res);
             this.isLoading = false;
         },
         error:(error) =>{
@@ -59,5 +62,14 @@ export class UsersComponent implements OnInit{
                 },
                 error:(error) => { console.error(error); }
               });
+  }
+  handleSelectedUser(user:Users){
+    if(!user) return; 
+    this.selectedUser = user;
+    console.log(this.selectedUser);
+  }
+  showAllUsers(){
+    this.userList = [];
+    this.getAllUsers();
   }
 }
