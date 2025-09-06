@@ -6,15 +6,12 @@ import { AfterViewInit, Component, ElementRef, ViewChild, afterNextRender } from
   selector: 'app-stocks-component',
   imports: [],
   templateUrl: './stocks-component.html',
-  styles: `
-    div{
-      font-family: 'DM Mono', monospace
-    }
-  `
+  styleUrl: './stocks-component.scss'
 })
-export class StocksComponent{
+export class StocksComponent implements AfterViewInit{
   @ViewChild('myIdRef') container!: ElementRef;
-
+  widgetElement: unknown;
+  script = document.createElement("script");
   stockSymbols:any = null;
   stocksProps:any = {
     "lineWidth": 2,
@@ -68,7 +65,7 @@ export class StocksComponent{
   constructor(){
     const symbols = [
       [
-      "NSE:HDFCBANK|1D"
+      "NSE:IZMO|1D"
       ],
       [
         "NSE:OLAELEC|1D"
@@ -81,14 +78,17 @@ export class StocksComponent{
       ]
     ];
     this.stocksProps.symbols.push(symbols);
-    afterNextRender(() => {
-      const widgetElement: HTMLDivElement = this.container.nativeElement;
-      const script = document.createElement("script");
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
-      script.type = "text/javascript";
-      script.async = true;
-      script.innerHTML = `${this.stocksProps}`;
-      widgetElement.appendChild(script);
-    });
+    // afterNextRender(() => {
+    //   this.script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
+    //   this.script.type = "text/javascript";
+    //   this.script.async = true;
+    //   this.script.innerHTML = `${this.stocksProps}`;
+    //   (HTMLDivElement)this.widgetElement.appendChild(this.script);
+    // });
   }
+  ngAfterViewInit(): void {
+    this.widgetElement = this.container.nativeElement;
+    
+  }
+
 }

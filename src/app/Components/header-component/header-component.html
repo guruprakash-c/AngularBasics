@@ -39,7 +39,8 @@
         <button class="btn btn-dark" type="submit">Search</button>
       </form>
       } @else{
-        @defer (hydrate on timer(3s)) {
+        <!-- @defer (hydrate on timer(3s)) -->
+        @defer (on timer(5s)) {
           <span class="navbar-text">
             <abbr title="Proof of Concepts">PoC</abbr> of {{ title }}🎉
           </span>
