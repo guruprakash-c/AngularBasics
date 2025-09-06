@@ -59,4 +59,11 @@ body{
 .h6, h6{
     font-family: var(--app-heading-fonts);
 }
-
+pre,
+code,
+kbd,
+samp{
+    font-family: 'DM Mono', var(--app-body-fonts) !important;
+    letter-spacing: normal;
+    font-optical-sizing: auto;
+}

@@ -1,0 +1,13 @@
+<main class="container p-4">
+    <h1>Signals</h1>
+    <fieldset class="bordered">
+        <legend>
+            (<button class="btn btn-primary btn-sm" (click)="setSignalValue()">set()</button>)-
+            (<button class="btn btn-secondary btn-sm" (click)="updateSignalValue()">update()</button>)-
+            (<button class="btn btn-info btn-sm" (click)="effectSignalValue()">effect()</button>)
+        </legend>
+        <h3>{{blogName()}}</h3>
+        <p class="card">{{blogPostTitle()}}</p>
+        <p class="fs-2">Slug: <code>://BASE_URL/{{blogSlug()}}/</code></p>
+    </fieldset>
+</main>

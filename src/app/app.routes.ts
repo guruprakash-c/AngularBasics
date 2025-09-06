@@ -7,6 +7,7 @@ import { DetailsComponent } from './Components/pages/details/details';
 import { ErrorComponent } from './Components/pages/error-component/error-component';
 import { StocksComponent } from './stocks-component/stocks-component';
 import { UsersComponent } from './Components/pages/users-component/users-component';
+import { SignalPage } from './Components/pages/signal-page/signal-page';
 
 const defaultPageTitle = `Angular ${VERSION.full} Basics`;
 const routeConfig:Routes = [
@@ -49,6 +50,11 @@ const routeConfig:Routes = [
         path: 'users',
         component: UsersComponent,
         title: `Users – ${defaultPageTitle}`
+    },
+    {
+        path: 'signals',
+        component: SignalPage,
+        title: `Signals – ${defaultPageTitle}`
     },
     {
         path: 'error',
