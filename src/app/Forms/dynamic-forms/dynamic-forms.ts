@@ -19,32 +19,32 @@ type FormG = FormGroup<{
   styleUrl: './dynamic-forms.scss'
 })
 export class DynamicForms {
-  // _fb = inject(NonNullableFormBuilder);
-  // quizForm: FormG = this._fb.group({
-  //   questions: this._fb.array<FormQuestions>([this.generateQuestion()])
-  // });
-  // generateQuestion(): FormQuestions{
-  //   return this._fb.group({
-  //     questionName: '',
-  //     answers: this._fb.array<FormAnswers>([])
-  //   });
-  // }
-  // AddQuestion():void{
-  //   this.quizForm.controls.questions.push(this.generateQuestion());
-  // }
-  // AddAnswer(questionIndex:number):void{
-  //   const newAnswer: FormAnswers = this._fb.group({
-  //     text: ''
-  //   });
-  //   this.quizForm.controls.questions.at(questionIndex).controls?.answers?.push(newAnswer);
-  // }
-  // RemoveQuestion(questionIndex:number):void{
-  //   this.quizForm.controls.questions.removeAt(questionIndex);
-  // }
-  // RemoveAnswer(questionIndex:number, answerIndex:number):void{
-  //   this.quizForm.controls.questions.at(questionIndex).controls?.answers?.removeAt(answerIndex);
-  // }
-  // OnSubmit():void{
-  //   console.log(this.quizForm.getRawValue());
-  // }
+  _fb = inject(NonNullableFormBuilder);
+  quizForm: FormG = this._fb.group({
+    questions: this._fb.array<FormQuestions>([this.generateQuestion()])
+  });
+  generateQuestion(): FormQuestions{
+    return this._fb.group({
+      questionName: '',
+      answers: this._fb.array<FormAnswers>([])
+    });
+  }
+  AddQuestion():void{
+    this.quizForm.controls.questions.push(this.generateQuestion());
+  }
+  AddAnswer(questionIndex:number):void{
+    const newAnswer: FormAnswers = this._fb.group({
+      text: ''
+    });
+    this.quizForm.controls.questions.at(questionIndex).controls?.answers?.push(newAnswer);
+  }
+  RemoveQuestion(questionIndex:number):void{
+    this.quizForm.controls.questions.removeAt(questionIndex);
+  }
+  RemoveAnswer(questionIndex:number, answerIndex:number):void{
+    this.quizForm.controls.questions.at(questionIndex).controls?.answers?.removeAt(answerIndex);
+  }
+  OnSubmit():void{
+    console.log(this.quizForm.getRawValue());
+  }
 }

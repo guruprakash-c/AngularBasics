@@ -6,3 +6,8 @@
     letter-spacing: -1px;
     font-style: normal;
 }
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: white;
+    background: black;
+    padding: 4px 5px;
+}

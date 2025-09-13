@@ -8,11 +8,18 @@ import { ErrorComponent } from './Components/pages/error-component/error-compone
 import { StocksComponent } from './stocks-component/stocks-component';
 import { UsersComponent } from './Components/pages/users-component/users-component';
 import { SignalPage } from './Components/pages/signal-page/signal-page';
+import { BlogpostsPage } from './Components/pages/blogposts/blogposts';
+import { TemplateDrivenFormsPages } from './Forms/template-driven-forms/template-driven-forms';
 
 const defaultPageTitle = `Angular ${VERSION.full} Basics`;
 const routeConfig:Routes = [
     {
-        path:'',
+        path: '',
+        redirectTo: 'home',
+        pathMatch:'full'
+    },
+    {
+        path:'home',
         component: HomeComponent,
         title: `Home – ${defaultPageTitle}`
     },
@@ -24,22 +31,24 @@ const routeConfig:Routes = [
     {
         path:'forms',
         component: FormsComponent,
-        title: `Forms – ${defaultPageTitle}`
-    },
-    {
-        path: 'tf',
-        redirectTo: '/users',
-        title: `Template Driven Forms – ${defaultPageTitle}`
-    },
-    {
-        path: 'rf',
-        component: ReactiveForms,
-        title: `Reactive Forms – ${defaultPageTitle}`
-    },
-    {
-        path: 'df',
-        component: DynamicForms,
-        title: `Dynamic Forms – ${defaultPageTitle}`
+        title: `Forms – ${defaultPageTitle}`,
+        children: [
+            {
+                path: 'tf',
+                component: TemplateDrivenFormsPages,
+                title: `Template Driven Forms – ${defaultPageTitle}`
+            },
+            {
+                path: 'rf',
+                component: ReactiveForms,
+                title: `Reactive Forms – ${defaultPageTitle}`
+            },
+            {
+                path: 'df',
+                component: DynamicForms,
+                title: `Dynamic Forms – ${defaultPageTitle}`
+            }
+        ]
     },
     {
         path:'stocks',
@@ -55,6 +64,16 @@ const routeConfig:Routes = [
         path: 'signals',
         component: SignalPage,
         title: `Signals – ${defaultPageTitle}`
+    },
+    {
+        path:'blogpost/:category/:postId',
+        component: BlogpostsPage
+    },
+    {
+        path:'posts/:category/:postId',
+        redirectTo: (route) =>{
+            return `/blogpost/${route.params['category']}/${route.params['postId']}`
+        }
     },
     {
         path: 'error',

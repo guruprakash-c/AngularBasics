@@ -11,7 +11,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild, afterNextRender } from
 export class StocksComponent implements AfterViewInit{
   @ViewChild('myIdRef') container!: ElementRef;
   widgetElement: unknown;
-  script = document.createElement("script");
+  //script = document.createElement("script");
   stockSymbols:any = null;
   stocksProps:any = {
     "lineWidth": 2,

@@ -7,30 +7,33 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="/">Home</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/modules">Modules</a>
+          <a class="nav-link" routerLink="/modules" routerLinkActive="active">Modules</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" routerLink="/forms" routerLinkActive="active" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Forms
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/tf">Template Driven</a></li>
-            <li><a class="dropdown-item" href="/rf">Reactive</a></li>
+            <li><a class="dropdown-item" routerLink="/forms/tf" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Template Driven</a></li>
+            <li><a class="dropdown-item" routerLink="/forms/rf" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Reactive</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/df">Dynamic</a></li>
+            <li><a class="dropdown-item" routerLink="/forms/df" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dynamic</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/stocks">Stocks</a>
+          <a class="nav-link" routerLink="/stocks" routerLinkActive="active">Stocks</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/users">Users</a>
+          <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/signals">Signals</a>
+          <a class="nav-link" routerLink="/signals" routerLinkActive="active">Signals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/posts/category/all" routerLinkActive="active">Blog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Dashboard</a>

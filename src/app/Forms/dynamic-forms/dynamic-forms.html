@@ -1,11 +1,11 @@
-<!-- <section class="card p-4 shadow">
+<section class="card p-4 shadow">
     <h3>Dynamic forms</h3>
     <hr/>
     <form class="row g-3" [formGroup]="quizForm" (ngSubmit)="OnSubmit()">
     <div class="col-lg-12 text-center">
         <button class="btn btn-light btn-sm" type="button" (click)="AddQuestion()">[+] Add Question</button>
     </div>
-    @for(question of quizForm.controls.questions.controls; 
+    <!-- @for(question of quizForm.controls.questions.controls; 
         track qIndex; 
         let qIndex = $index){
         <div class="col-md-6 question" [formGroupName]="qIndex">
@@ -32,10 +32,9 @@
             </div>
             }
         </div>
-    }
+    } -->
   <div class="col-12">
     <button class="btn btn-primary" type="submit">Submit form</button>
   </div>
 </form>
-</section> -->
-<p>Dynamic has Err00rs ;(</p>
+</section>
