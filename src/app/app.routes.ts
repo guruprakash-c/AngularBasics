@@ -51,8 +51,7 @@ const routeConfig:Routes = [
             },
             {
                 path: 'yf',
-                component: TypedFormsComponent,
-                //loadComponent: () => import('./Forms/typed-forms/typed-forms').then(y => y.TypedFormsComponent),
+                loadComponent: () => import('./Forms/typed-forms/typed-forms').then(y => y.TypedFormsComponent),
                 title: `Typed Forms - ${defaultPageTitle}`
             }
         ]
