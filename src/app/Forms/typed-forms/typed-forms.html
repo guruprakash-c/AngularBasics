@@ -1,0 +1,17 @@
+<section class="container">
+    <form formGroup="register" class="row g-4 justify-content-center" (submit)="OnSubmit()">
+        <div class="col-md-4">
+            <label for="fullName">Name:<sup class="text-danger ms-1">*</sup></label>
+            <input type="text" formControlName="fullName" maxlength="25" required/>
+            <small class="help-text">max. 25 chars.</small>
+        </div>
+        <div class="col-md-4">
+            <label for="email">Email address:<sup class="text-danger ms-1">*</sup></label>
+            <input type="email" formControlName="email" maxlength="25" required/>
+            <small class="help-text">max. 25 chars.</small>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-danger" type="submit">Register</button>
+        </div>
+    </form>
+</section>

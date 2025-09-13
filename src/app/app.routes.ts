@@ -10,6 +10,7 @@ import { UsersComponent } from './Components/pages/users-component/users-compone
 import { SignalPage } from './Components/pages/signal-page/signal-page';
 import { BlogpostsPage } from './Components/pages/blogposts/blogposts';
 import { TemplateDrivenFormsPages } from './Forms/template-driven-forms/template-driven-forms';
+import { TypedFormsComponent } from './Forms/typed-forms/typed-forms';
 
 const defaultPageTitle = `Angular ${VERSION.full} Basics`;
 const routeConfig:Routes = [
@@ -21,49 +22,55 @@ const routeConfig:Routes = [
     {
         path:'home',
         component: HomeComponent,
-        title: `Home – ${defaultPageTitle}`
+        title: `Home - ${defaultPageTitle}`
     },
     {
         path:'details/:perma',
         component: DetailsComponent,
-        title: `Details Page – ${defaultPageTitle}`,
+        title: `Details Page - ${defaultPageTitle}`,
     },
     {
         path:'forms',
         component: FormsComponent,
-        title: `Forms – ${defaultPageTitle}`,
+        title: `Forms - ${defaultPageTitle}`,
         children: [
             {
                 path: 'tf',
                 component: TemplateDrivenFormsPages,
-                title: `Template Driven Forms – ${defaultPageTitle}`
+                title: `Template Driven Forms - ${defaultPageTitle}`
             },
             {
                 path: 'rf',
                 component: ReactiveForms,
-                title: `Reactive Forms – ${defaultPageTitle}`
+                title: `Reactive Forms - ${defaultPageTitle}`
             },
             {
                 path: 'df',
                 component: DynamicForms,
-                title: `Dynamic Forms – ${defaultPageTitle}`
+                title: `Dynamic Forms - ${defaultPageTitle}`
+            },
+            {
+                path: 'yf',
+                component: TypedFormsComponent,
+                //loadComponent: () => import('./Forms/typed-forms/typed-forms').then(y => y.TypedFormsComponent),
+                title: `Typed Forms - ${defaultPageTitle}`
             }
         ]
     },
     {
         path:'stocks',
         component: StocksComponent,
-        title: `Stocks – ${defaultPageTitle}`
+        title: `Stocks - ${defaultPageTitle}`
     },
     {
         path: 'users',
         component: UsersComponent,
-        title: `Users – ${defaultPageTitle}`
+        title: `Users - ${defaultPageTitle}`
     },
     {
         path: 'signals',
         component: SignalPage,
-        title: `Signals – ${defaultPageTitle}`
+        title: `Signals - ${defaultPageTitle}`
     },
     {
         path:'blogpost/:category/:postId',
@@ -78,7 +85,7 @@ const routeConfig:Routes = [
     {
         path: 'error',
         component: ErrorComponent,
-        title: `Not found – ${defaultPageTitle}`
+        title: `Not found - ${defaultPageTitle}`
     },
     {
         path: '**',
