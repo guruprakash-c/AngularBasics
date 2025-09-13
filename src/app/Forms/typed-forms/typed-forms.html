@@ -1,17 +1,17 @@
-<section class="container">
-    <form formGroup="register" class="row g-4 justify-content-center" (submit)="OnSubmit()">
+<section class="container bg-white card shadow p-4">
+    <form [formGroup]="register" class="row g-4 justify-content-center" (submit)="OnSubmit()">
         <div class="col-md-4">
-            <label for="fullName">Name:<sup class="text-danger ms-1">*</sup></label>
+            <label class="form-label me-1" for="fullName">Name:<sup class="text-danger ms-1">*</sup></label>
             <input type="text" formControlName="fullName" maxlength="25" required/>
-            <small class="help-text">max. 25 chars.</small>
+            <small class="help-text ms-1">max. 25 chars.</small>
         </div>
         <div class="col-md-4">
-            <label for="email">Email address:<sup class="text-danger ms-1">*</sup></label>
+            <label class="form-label me-1" for="email">Email address:<sup class="text-danger ms-1">*</sup></label>
             <input type="email" formControlName="email" maxlength="25" required/>
-            <small class="help-text">max. 25 chars.</small>
+            <small class="help-text ms-1">max. 25 chars.</small>
         </div>
         <div class="col-md-4">
-            <button class="btn btn-danger" type="submit">Register</button>
+            <button class="btn btn-danger btn-sm" type="submit" [disabled]="!this.register.valid">Register</button>
         </div>
     </form>
 </section>
