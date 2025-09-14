@@ -11,6 +11,7 @@ import { SignalPage } from './Components/pages/signal-page/signal-page';
 import { BlogpostsPage } from './Components/pages/blogposts/blogposts';
 import { TemplateDrivenFormsPages } from './Forms/template-driven-forms/template-driven-forms';
 import { TypedFormsComponent } from './Forms/typed-forms/typed-forms';
+import { AuthGuardService } from './Guards/auth-guard.service';
 
 const defaultPageTitle = `Angular ${VERSION.full} Basics`;
 const routeConfig:Routes = [
@@ -64,7 +65,8 @@ const routeConfig:Routes = [
     {
         path: 'users',
         component: UsersComponent,
-        title: `Users - ${defaultPageTitle}`
+        title: `Users - ${defaultPageTitle}`,
+        canActivate: [AuthGuardService]
     },
     {
         path: 'signals',
