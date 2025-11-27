@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogPostsService, IBlogPosts } from '../../../Services/blog-posts';
@@ -11,7 +11,7 @@ type PostComments = {
 };
 @Component({
   selector: 'app-details',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   template: `
     <article class="card shadow-md">
       <img [src]="blogPost?.poster" class="card-img-top" [alt]="blogPost?.slug">
